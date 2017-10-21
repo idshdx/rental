@@ -1,0 +1,10 @@
+<div class="car-panel">
+  <span class="discount">Save {{discount}}%</span>
+  <div class="panel-content">
+    <img src="assets/hertz-logo.jpg" height="50" width="100">
+    <hr/>
+    <h4 class="car-name">{{car.make_model}}</h4>
+    <h6 class="car-type">{{car.type}}</h6>
+    <p class="car-price"><strong>{{car.price | finalPrice: discount}}</strong></p>  
+  </div>
+</div>

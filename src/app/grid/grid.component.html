@@ -1,0 +1,14 @@
+<app-button 
+  (newCarTypes)="getNewCarTypes($event)"
+  (newCarResults)="getNewCarResults($event)"
+  (newDiscount)="getNewDiscount($event)">
+</app-button>
+
+<div *ngFor="let type of carTypes" class="category-wrapper">
+  <h6 class="category-name">{{type}}</h6>
+  <div *ngFor="let car of carResults">
+    <div *ngIf="type === car.type" class="car-category">
+      <app-panel [car]="car" [discount]="discount"></app-panel>
+    </div>
+  </div>
+</div>
