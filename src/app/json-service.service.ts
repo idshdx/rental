@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class JsonService {
 
-  readonly url: string  = 'http://localhost:3000/api/cars';
+  readonly url: string  = 'https://shielded-earth-33717.herokuapp.com/api/cars'; //'http://localhost:3000/api/cars';
 
   constructor(private http: HttpClient)  { }
 
