@@ -222,7 +222,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "button {\n  height: 50px;\n  margin: 50px;\n  width: 200px;\n  border: none;\n  text-decoration: none;\n  display: inline-block;\n  border-radius: 20px;\n  background-color: #0099ff;\n  color: white;\n  font-size: 16px;\n  text-align: center;\n  cursor: pointer;\n  outline: 0;\n  transition: all 0.5s; }\n  button:hover {\n    background-color: #006bb3; }\n    button:hover span {\n      padding-right: 25px; }\n      button:hover span:after {\n        opacity: 1;\n        right: 0; }\n  button span {\n    display: inline-block;\n    position: relative;\n    transition: 0.5s; }\n    button span:after {\n      content: '\\BB';\n      position: absolute;\n      opacity: 0;\n      top: 0;\n      right: -20px;\n      transition: 0.5s; }\n", ""]);
+exports.push([module.i, "button {\n  height: 50px;\n  margin-left: 50px;\n  width: 200px;\n  border: none;\n  text-decoration: none;\n  display: inline-block;\n  border-radius: 20px;\n  background-color: #0099ff;\n  color: white;\n  font-size: 16px;\n  text-align: center;\n  cursor: pointer;\n  outline: 0;\n  transition: all 0.5s; }\n  button:hover {\n    background-color: #006bb3; }\n    button:hover span {\n      padding-right: 25px; }\n      button:hover span:after {\n        opacity: 1;\n        right: 0; }\n  button span {\n    display: inline-block;\n    position: relative;\n    transition: 0.5s; }\n    button span:after {\n      content: '\\BB';\n      position: absolute;\n      opacity: 0;\n      top: 0;\n      right: -20px;\n      transition: 0.5s; }\n", ""]);
 
 // exports
 
