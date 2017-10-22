@@ -1,1 +1,2 @@
-web: node backend.js && node app.js
+web: node backend.js
+web: node app.js
