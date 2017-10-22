@@ -65,14 +65,14 @@ var vehicles = {
   }
 }
 
-app.use('/resources/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
-app.use('/resources/css', express.static(__dirname + '/dist/css'));
-app.use('/resources/js', express.static(__dirname + '/dist/js'));
-app.use('/resources/images', express.static(__dirname + '/dist/images'));
+// app.use('/resources/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
+// app.use('/resources/css', express.static(__dirname + '/dist/css'));
+// app.use('/resources/js', express.static(__dirname + '/dist/js'));
+// app.use('/resources/images', express.static(__dirname + '/dist/images'));
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/templates/index.html'));
-});
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/dist/templates/index.html'));
+// });
 
 app.get('/api/cars', function (req, res) {
   var responseJson = {};
