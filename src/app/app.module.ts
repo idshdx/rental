@@ -2,6 +2,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // components
 import { AppComponent } from './app.component';
@@ -24,7 +26,9 @@ import { FinalPricePipe } from './final-price.pipe';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [JsonService],
   bootstrap: [AppComponent]

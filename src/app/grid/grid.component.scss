@@ -1,15 +1,17 @@
 @import '../../colors';
-.car-category {
-    float: left;
-    padding: 30px;
-}
+// .car-category {
+//     float: left;
+//     padding: 30px;
+// }
 .category-name {
-    width: 100%;
     font-size: 26px;
     background-color: $category-name-grey;
     padding: 20px 0 20px 50px;
 }
-.category-wrapper {
-    width: 100%;
-    display: inline-block;
+
+.category-wrapper ::ng-deep app-panel {
+    margin: 50px;
+    .car-panel {
+        margin-top: 20px;
+    }
 }

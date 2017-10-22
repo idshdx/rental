@@ -1,14 +1,27 @@
 <app-button 
-  (newCarTypes)="getNewCarTypes($event)"
   (newCarResults)="getNewCarResults($event)"
   (newDiscount)="getNewDiscount($event)">
 </app-button>
 
 <div *ngFor="let type of carTypes" class="category-wrapper">
-  <h6 class="category-name">{{type}}</h6>
-  <div *ngFor="let car of carResults">
-    <div *ngIf="type === car.type" class="car-category">
-      <app-panel [car]="car" [discount]="discount"></app-panel>
+  <h6 
+    class="category-name" 
+    [@initSlideInLeftAnimation]>
+      {{type}}
+  </h6>
+  <div 
+    fxLayoutAlign="start stretch"
+    fxLayout="row" 
+    fxLayout.lt-md="column"
+    fxLayoutWrap
+    fxLayoutAlign.lt-md="center center">
+    <div *ngFor="let car of carResults">
+      <app-panel
+        *ngIf="type === car.type" 
+        [car]="car" 
+        [discount]="discount" 
+        [@initSlideDownAnimation]>
+      </app-panel>
     </div>
   </div>
 </div>

@@ -4,8 +4,9 @@ import { GridComponent } from './grid.component';
 import { PanelComponent } from '../panel/panel.component';
 import { ButtonComponent } from '../button/button.component';
 import { FinalPricePipe } from '../final-price.pipe';
-
 import { JsonService } from '../json-service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { slideInLeftAnimation, slideInDownAnimation, fadeAnimation } from '../animations';
 
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -36,7 +37,8 @@ describe('GridComponent', () => {
       providers: [
         { provide: JsonService, useValue: mockService },
         { provide: Http, useValue: mockHttpProvider }
-      ]
+      ],
+      imports: [ BrowserAnimationsModule ]
     })
     .compileComponents();
   }));
@@ -59,30 +61,36 @@ describe('GridComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  describe('getNewCarTypes', () => {
-    it('should assign new car types', () => {
-      component.carTypes = [];
-      const newCarTypes = ['SUV', 'Enterprise'];
-      component.getNewCarTypes(newCarTypes);
-      expect(component.carTypes).toBe(newCarTypes);
-    });
-  });
-
   describe('getNewCarResults', () => {
-    it('should assign new car results', () => {
+    it('should add a new car result', fakeAsync(() => {
       component.carResults = [];
-      const carResults: Array<Car> = [{make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50}];
-      component.getNewCarResults(carResults);
-      expect(component.carResults).toBe(carResults);
-    });
-  });
+      const newCarResults: Array<Car> =
+      [{make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50}]; // 5 cars from req
 
-  describe('getNewDiscount', () => {
-    it('should assign a new discount', () => {
-      component.discount = 1;
-      component.getNewDiscount(2);
-      expect(component.discount).toBe(2);
-    });
+      const expected: Array<Car> =
+      [{make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50}];
+      // picking a random vehicle
+      component.getNewCarResults(newCarResults);
+      tick();
+      expect(component.carResults).toEqual(expected);
+      // expect(computed).toBe(expected);
+    }));
+    it( 'should increse the size of the list of vehicles', fakeAsync(() => {
+      component.carResults = [];
+      const carResults: Array<Car> =
+      [{make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50},
+      {make_model: 'Dacia', type: 'SUV', provider: 'provider', price: 50}];
+      component.getNewCarResults(carResults);
+      tick();
+      expect(component.carResults.length).toBe(1);
+    }));
   });
 
 });

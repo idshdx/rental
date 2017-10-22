@@ -1,11 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsonService } from '../json-service.service';
 import { Car } from '../car';
+import { slideInLeftAnimation, slideInDownAnimation, fadeAnimation } from '../animations';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
+  animations: [ slideInLeftAnimation, slideInDownAnimation, fadeAnimation ]
 })
 export class GridComponent implements OnInit {
 
@@ -40,14 +42,15 @@ export class GridComponent implements OnInit {
     });
   }
 
-  // Get the events sent from the button component
-
-  getNewCarTypes($event: Array<string>) {
-    this.carTypes = $event;
-  }
-
   getNewCarResults($event: Array<Car>) {
-    this.carResults = $event;
+    const randomOneToFive: number = Math.floor(Math.random() * 6); // 5 entries per req
+    if ($event[randomOneToFive]) {
+       // after the initial req we can find between 1 and max car types
+      if (this.carTypes.indexOf($event[randomOneToFive].type) === -1) {
+        this.carTypes.push($event[randomOneToFive].type);
+      }
+      this.carResults.push($event[randomOneToFive]);
+    }
   }
 
   getNewDiscount($event: number) {
