@@ -8,10 +8,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postInstall": "ng build --aot --prod"
   },
+  "main": "app.js",
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.4.5",
+    "@angular/compiler-cli": "^4.2.4",
     "@angular/animations": "^4.4.6",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",

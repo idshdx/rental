@@ -1,5 +1,7 @@
-# Rental
+# Rentalcars frontend test by Andrei Mihaila Botez 
 
+## Technology stack
+- Angular 4 ( Typescrypt, RXJS, Webpack, Karma/Jasmine ) and Express for serving the AOT compiled code and for Heroku deployment
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
 ## Development server
@@ -14,14 +16,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+Run node app.js. Navigate to to `http://localhost:3001/`
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Design/ Architecture
+Project follows angular 4 standards
+- components: button, panel, grid - and app root
+- services: JsonService makes the json request
+- unit tests reside near each component, but not the abstract class for mocking services and interfaces (src/app)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
