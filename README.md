@@ -1,4 +1,4 @@
-# Rentalcars frontend test by Andrei Mihaila Botez 
+# Interface for managing car rental offers
 
 ## Technology stack
 Angular 4 ( Typescrypt, RXJS, Webpack, Karma/Jasmine ) and Express for serving the AOT compiled code and for Heroku deployment
